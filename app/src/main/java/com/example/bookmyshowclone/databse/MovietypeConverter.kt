@@ -1,4 +1,4 @@
-package com.example.bookmyshowclone
+package com.example.bookmyshowclone.databse
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson

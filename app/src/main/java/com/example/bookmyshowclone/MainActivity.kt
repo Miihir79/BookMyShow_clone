@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
+import com.example.bookmyshowclone.databse.Movie
+import com.example.bookmyshowclone.databse.MovieDatabase
+import com.example.bookmyshowclone.databse.MovieRepositoryImp
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -37,7 +37,8 @@ class MainActivity : AppCompatActivity() {
     private fun setupViewModel(){
         showProgress()
         viewModel = ViewModelProvider(this,ViewmodelFactory(NetworkHelper(this),
-                MovieRepositoryImp(MovieDatabase.getInstance(this).movieDao(),RetrofitBuilder.buildService())))[MainViewModel::class.java]
+                MovieRepositoryImp(MovieDatabase.getInstance(this).movieDao(),RetrofitBuilder.buildService())
+        ))[MainViewModel::class.java]
         viewModel.onCreate()
     }
 

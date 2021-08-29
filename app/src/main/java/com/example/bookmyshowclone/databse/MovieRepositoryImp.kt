@@ -1,11 +1,15 @@
-package com.example.bookmyshowclone
+package com.example.bookmyshowclone.databse
 
+import com.example.bookmyshowclone.MovieRepository
+import com.example.bookmyshowclone.MovieResponse
+import com.example.bookmyshowclone.MovieService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MovieRepositoryImp(private val movieDao: MovieDao,private val request:MovieService):MovieRepository {
-    override fun fetchMovies(api_key: String,onSucess:(MovieResponse) -> Unit, onError:(String) -> Unit) {
+class MovieRepositoryImp(private val movieDao: MovieDao, private val request: MovieService):
+    MovieRepository {
+    override fun fetchMovies(api_key: String, onSucess:(MovieResponse) -> Unit, onError:(String) -> Unit) {
        // val request = RetrofitBuilder.buildService()
         val call = request.getMovies(api_key)
 

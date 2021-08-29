@@ -1,4 +1,4 @@
-package com.example.bookmyshowclone
+package com.example.bookmyshowclone.databse
 import com.google.gson.annotations.SerializedName
 data class     Movie(
     val id : Int,
@@ -14,7 +14,9 @@ data class     Movie(
      val voteAverage: Double,
 
     @SerializedName("vote_count")
-     val voteCount: Int
+     val voteCount: Int,
+
+    val adult : Boolean
 )
 
 
