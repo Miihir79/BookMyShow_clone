@@ -1,4 +1,5 @@
 package com.example.bookmyshowclone
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,8 +8,6 @@ import com.bumptech.glide.Glide
 import com.example.bookmyshowclone.databse.Movie
 import kotlinx.android.synthetic.main.movie_item_layout.view.*
 
-
-
  class MovieAdapter(private val movies:List<Movie>): RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>() {
 
      override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
@@ -16,12 +15,21 @@ import kotlinx.android.synthetic.main.movie_item_layout.view.*
          return MoviesViewHolder(view)
      }
 
-     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int)
-        = holder.bind(movies[position])
+     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int){
+         holder.itemView.setOnClickListener {
+             val intent = Intent(holder.itemView.context,movieView::class.java)
+             intent.putExtra("ImgURL",movies[position].posterPath)
+             intent.putExtra("ID",movies[position].id)
+             it.context.startActivity(intent)
+         }
+         return holder.bind(movies[position])
+     }
+
 
      override fun getItemCount(): Int = movies.count()
 
      class MoviesViewHolder(itemview: View): RecyclerView.ViewHolder(itemview) {
+
          companion object{
              private const val IMAGE_BASE_URL = "https:image.tmdb.org/t/p/w500"
          }

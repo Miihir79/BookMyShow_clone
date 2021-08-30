@@ -16,7 +16,13 @@ data class     Movie(
     @SerializedName("vote_count")
      val voteCount: Int,
 
-    val adult : Boolean
+    val adult : Boolean,
+
+    val original_language: String,
+
+    val popularity: Float,
+
+    val overview: String
 )
 
 
