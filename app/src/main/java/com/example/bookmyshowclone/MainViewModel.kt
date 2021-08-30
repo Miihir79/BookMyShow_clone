@@ -3,6 +3,8 @@ package com.example.bookmyshowclone
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 class MainViewModel(private val networkHelper: NetworkHelper,private val movieRepository: MovieRepository):ViewModel() {
     companion object {
@@ -18,25 +20,29 @@ class MainViewModel(private val networkHelper: NetworkHelper,private val movieRe
 
     fun onCreate(){
         if(networkHelper.isNetworkConnected()){
-
-            movieRepository.fetchMovies(API_KEY,{movieresponse->
-                _movieresponse.postValue(movieresponse)
-            },{
-                _erroeresponse.postValue(it)
-            })
+            viewModelScope.launch {
+                movieRepository.fetchMovies(API_KEY,{movieresponse->
+                    _movieresponse.postValue(movieresponse)
+                },{
+                    _erroeresponse.postValue(it)
+                })
+            }
 
         }
         else{
-            movieRepository.getMoviesLocal {
-                movieResponse ->
-                if (movieResponse!=null && movieResponse.results.isNotEmpty()) {
-                    _movieresponse.postValue(movieResponse)
-                }
-                else{
-                    _erroeresponse.postValue("something went wrong!")
-                }
+            viewModelScope.launch {
+                movieRepository.getMoviesLocal {
+                        movieResponse ->
+                    if (movieResponse!=null && movieResponse.results.isNotEmpty()) {
+                        _movieresponse.postValue(movieResponse)
+                    }
+                    else{
+                        _erroeresponse.postValue("something went wrong!")
+                    }
 
+                }
             }
+
         }
     }
 }

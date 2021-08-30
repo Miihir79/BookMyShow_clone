@@ -8,6 +8,9 @@ import com.example.bookmyshowclone.databse.Movie
 import com.example.bookmyshowclone.databse.MovieDatabase
 import com.example.bookmyshowclone.databse.MovieRepositoryImp
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -36,10 +39,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupViewModel(){
         showProgress()
-        viewModel = ViewModelProvider(this,ViewmodelFactory(NetworkHelper(this),
-                MovieRepositoryImp(MovieDatabase.getInstance(this).movieDao(),RetrofitBuilder.buildService())
+        viewModel = ViewModelProvider(this@MainActivity,ViewmodelFactory(NetworkHelper(this@MainActivity),
+            MovieRepositoryImp(MovieDatabase.getInstance(this@MainActivity).movieDao(),RetrofitBuilder.buildService())
         ))[MainViewModel::class.java]
         viewModel.onCreate()
+
     }
 
     private fun showMovies(movies: List<Movie>){
