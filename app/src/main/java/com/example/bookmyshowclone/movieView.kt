@@ -33,6 +33,10 @@ class movieView : AppCompatActivity() {
                     textDesc.text = movies[i].overview
                     collapsingToolBar.title = movies[i].title
                     toolBar.title = movies[i].title
+                    textHeading.text =  movies[i].title
+                    textLanguage.text = movies[i].original_language
+                    textReleaseDate.text = movies[i].releaseDate
+                    textRating.text = if(movies[i].adult ) "A" else "NA"
                 }
             }
         })
