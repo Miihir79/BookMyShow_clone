@@ -8,4 +8,10 @@ It uses **Room** datbase to store data locally and **MVVM** architecture. This p
 The additions to this projects have been made by using the same project structure and same API.
 
 ## Contribution 
-To contribute, you need the latest version of android studio, **fork** this repo and create a **pull request**.<br> ***All contributions are welcomed***.
+To contribute, you need the latest version of android studio, **fork** this repo and create a **pull request** Properly describe changes made and attach supporting ScreenShots in the PR. For major changes first open an issue.<br> ***All contributions are welcomed***.
+
+## What do you need to get started?
+#### Latest version of android studio and basic android and googling skills will get you going.
+
+## Author and contributors
+Initial work : <a href="https://github.com/Miihir79">***Mihir Shah***</a> <br>
