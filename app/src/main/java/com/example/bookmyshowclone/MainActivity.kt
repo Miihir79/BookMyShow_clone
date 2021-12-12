@@ -13,6 +13,9 @@ import com.example.bookmyshowclone.databse.Movie
 import com.example.bookmyshowclone.databse.MovieDatabase
 import com.example.bookmyshowclone.databse.MovieRepositoryImp
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -41,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             hideProgress()
         })
 
-        viewModel.erroeresponse.observe(this,{
+        viewModel.erroresponse.observe(this,{
             showErrorMess(it)
             hideProgress()
         })

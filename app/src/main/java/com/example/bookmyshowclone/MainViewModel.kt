@@ -14,9 +14,9 @@ class MainViewModel(private val networkHelper: NetworkHelper,private val movieRe
     val movieresponse :LiveData<MovieResponse>
     get()= _movieresponse
 
-    private val _erroeresponse = MutableLiveData<String>()
-    val erroeresponse : LiveData<String>
-    get() = _erroeresponse
+    private val _erroresponse = MutableLiveData<String>()
+    val erroresponse : LiveData<String>
+    get() = _erroresponse
 
     fun onCreate(){
         if(networkHelper.isNetworkConnected()){
@@ -24,7 +24,7 @@ class MainViewModel(private val networkHelper: NetworkHelper,private val movieRe
                 movieRepository.fetchMovies(API_KEY,{movieresponse->
                     _movieresponse.postValue(movieresponse)
                 },{
-                    _erroeresponse.postValue(it)
+                    _erroresponse.postValue(it)
                 })
             }
 
@@ -37,7 +37,7 @@ class MainViewModel(private val networkHelper: NetworkHelper,private val movieRe
                         _movieresponse.postValue(movieResponse)
                     }
                     else{
-                        _erroeresponse.postValue("something went wrong!")
+                        _erroresponse.postValue("something went wrong!")
                     }
 
                 }

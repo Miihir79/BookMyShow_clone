@@ -15,7 +15,7 @@ abstract fun movieDao(): MovieDao
         private var Instance: MovieDatabase?=null
 
         fun getInstance(context:Context): MovieDatabase {
-            kotlin.synchronized(this){
+            synchronized(this){
                 var instance : MovieDatabase?= Instance
                 if (instance==null){
                     instance= Room.databaseBuilder(context.applicationContext, MovieDatabase::class.java, DATABASE_NAME).build()
