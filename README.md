@@ -13,5 +13,5 @@ To contribute, you need the latest version of android studio, **fork** this repo
 ## What do you need to get started?
 #### Latest version of android studio and basic android and googling skills will get you going.
 
-## Author and contributors
-Initial work : <a href="https://github.com/Miihir79">***Mihir Shah***</a> <br>
+## Author 
+<a href="https://github.com/Miihir79">***Mihir Shah***</a> <br>
