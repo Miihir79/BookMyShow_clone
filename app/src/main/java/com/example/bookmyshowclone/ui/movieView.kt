@@ -1,10 +1,11 @@
-package com.example.bookmyshowclone
+package com.example.bookmyshowclone.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.example.bookmyshowclone.*
 import com.example.bookmyshowclone.databse.MovieDatabase
 import com.example.bookmyshowclone.databse.MovieRepositoryImp
 import kotlinx.android.synthetic.main.activity_movie_view.*
@@ -19,9 +20,13 @@ class movieView : AppCompatActivity() {
         Glide.with(this).load(imgUrl).into(imageView)
         val id = intent.getIntExtra("ID",0)
 
-        viewModel = ViewModelProvider(this,ViewmodelFactory(NetworkHelper(this),
-            MovieRepositoryImp(MovieDatabase.getInstance(this).movieDao(),RetrofitBuilder.buildService())
-        ))[MainViewModel::class.java]
+        viewModel = ViewModelProvider(this, ViewmodelFactory(
+            NetworkHelper(this),
+            MovieRepositoryImp(MovieDatabase.getInstance(this).movieDao(),
+                RetrofitBuilder.buildService()
+            )
+        )
+        )[MainViewModel::class.java]
         viewModel.onCreate()
 
         viewModel.movieresponse.observe(this,{

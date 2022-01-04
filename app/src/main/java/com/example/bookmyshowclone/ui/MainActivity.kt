@@ -1,4 +1,4 @@
-package com.example.bookmyshowclone
+package com.example.bookmyshowclone.ui
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -9,13 +9,12 @@ import android.view.Window
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.bookmyshowclone.*
 import com.example.bookmyshowclone.databse.Movie
 import com.example.bookmyshowclone.databse.MovieDatabase
 import com.example.bookmyshowclone.databse.MovieRepositoryImp
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -52,9 +51,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupViewModel(){
         showProgress()
-        viewModel = ViewModelProvider(this@MainActivity,ViewmodelFactory(NetworkHelper(this@MainActivity),
-            MovieRepositoryImp(MovieDatabase.getInstance(this@MainActivity).movieDao(),RetrofitBuilder.buildService())
-        ))[MainViewModel::class.java]
+        viewModel = ViewModelProvider(this@MainActivity, ViewmodelFactory(
+            NetworkHelper(this@MainActivity),
+            MovieRepositoryImp(MovieDatabase.getInstance(this@MainActivity).movieDao(),
+                RetrofitBuilder.buildService()
+            )
+        )
+        )[MainViewModel::class.java]
         viewModel.onCreate()
 
     }
@@ -64,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         progressBar.visibility= View.GONE
         recyclerView.setHasFixedSize(true)
         recyclerView.itemAnimator=DefaultItemAnimator()
+        recyclerView.layoutManager = GridLayoutManager(this,2)
         recyclerView.adapter= MovieAdapter(movies,this)
 
 
