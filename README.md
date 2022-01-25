@@ -1,6 +1,10 @@
 # BookMyShow Clone
 This project's initial code was made by using **DevFest India's** android tutorial which you can find <a href="https://www.youtube.com/watch?v=C8k9mdb9NE8&t=4498s"> here</a><br>
 
+<table>
+  <td><img src="https://user-images.githubusercontent.com/66465511/150926879-763e7200-d02d-4caa-98fe-c1e4bab4a04d.jpg" width="250">
+  <td><img src="https://user-images.githubusercontent.com/66465511/150926890-d87b978a-9175-41d5-bd5d-d78bcfa854d7.jpg" width="250">
+</table>
 #### Additionally I added a detailed movie view when you click on a movie. That will have animations, description of the plot and much more.
 
 It uses **Room** datbase to store data locally and **MVVM** architecture. This project is intended to be *beginner friendly*.
