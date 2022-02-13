@@ -14,7 +14,9 @@ The additions to this projects have been made by using the same project structur
 
 ## Contribution Guide
 To contribute, you need the latest version of android studio, **fork** this repo and create a **pull request** Properly describe changes made and attach supporting ScreenShots in the PR. For major changes first open an issue.<br> ***All contributions are welcomed***. <br>
-Currently UI changes are needed
+#### Currently UI changes are needed
+1. Bottom sheet for the description of the movie
+2. Better animations
 ## What do you need to get started?
 #### Latest version of android studio and basic android and googling skills will get you going.
 
