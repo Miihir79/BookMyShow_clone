@@ -1,5 +1,5 @@
 # BookMyShow Clone
-This project's initial code was made by using **DevFest India's** android tutorial which you can find <a href="https://www.youtube.com/watch?v=C8k9mdb9NE8&t=4498s"> here</a><br>
+This project's initial code was made by using **DevFest India's** android tutorial which you can find <a href="https://www.youtube.com/watch?v=C8k9mdb9NE8"> here</a><br>
 
 <table>
   <td><img src="https://user-images.githubusercontent.com/66465511/150926879-763e7200-d02d-4caa-98fe-c1e4bab4a04d.jpg" width="250">
