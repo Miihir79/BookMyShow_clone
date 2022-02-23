@@ -38,15 +38,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun ObserveViewModel(){
-        viewModel.movieresponse.observe(this,{
+        viewModel.movieresponse.observe(this) {
             showMovies(it.results)
             hideProgress()
-        })
+        }
 
-        viewModel.erroresponse.observe(this,{
+        viewModel.erroresponse.observe(this){
             showErrorMess(it)
             hideProgress()
-        })
+        }
     }
 
     private fun setupViewModel(){
