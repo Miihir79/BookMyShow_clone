@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    app:layoutDescription="@xml/activity_movie_view_scene"
     tools:context=".ui.movieView">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="image"
         android:elevation="10dp"
@@ -30,13 +29,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Movie Title" />
+        app:title="" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:elevation="12dp"
         app:layout_collapseMode="pin"
         app:layout_constraintBottom_toBottomOf="@+id/toolBar"
@@ -50,14 +49,11 @@
         android:id="@+id/heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:paddingBottom="8dp"
-        android:background="@drawable/scrollview_style"
-        android:gravity="center"
         android:orientation="horizontal"
+        android:layout_marginHorizontal="8dp"
+        android:background="@drawable/scrollview_style"
         app:layout_constraintBottom_toTopOf="@id/scroll"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
@@ -65,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginHorizontal="10dp"
             android:text="Movie name"
             android:textColor="@color/black"
             android:textSize="24sp" />
@@ -79,7 +75,7 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -109,7 +105,6 @@
     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
                 android:textColor="#5A5858"
                 android:textSize="16sp"
-                android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/textReleaseDate"
                 tools:layout_editor_absoluteX="0dp" />
 
@@ -121,9 +116,6 @@
                 android:text="Lang"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:padding="2dp"
-                android:paddingHorizontal="6dp"
-                android:textAllCaps="true"
                 app:layout_constraintBottom_toBottomOf="@+id/textReleaseDate"
                 app:layout_constraintEnd_toStartOf="@+id/textRating"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -148,5 +140,5 @@
     </LinearLayout>
 
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 

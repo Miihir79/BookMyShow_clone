@@ -20,11 +20,6 @@ class movieView : AppCompatActivity() {
         val imgUrl = intent.getStringExtra("ImgURL")
         Glide.with(this).load(imgUrl).into(imageView)
         val id = intent.getIntExtra("ID",0)
-
-        BottomSheetBehavior.from(scroll).apply {
-            peekHeight = 400
-            this.state = BottomSheetBehavior.STATE_COLLAPSED
-        }
         viewModel = ViewModelProvider(this, ViewmodelFactory(
             NetworkHelper(this),
             MovieRepositoryImp(MovieDatabase.getInstance(this).movieDao(),
